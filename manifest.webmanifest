@@ -1,0 +1,13 @@
+{
+  "name": "DiggyDug",
+  "short_name": "DiggyDug",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#14122b",
+  "theme_color": "#14122b",
+  "icons": [{
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
