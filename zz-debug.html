@@ -1,2 +1,21 @@
-<!doctype html><meta charset="utf-8"><title>zz</title>
-<body style="background:#111;color:#0f0;font:16px system-ui">ZZ DEBUG LOADED</body>
+<!doctype html>
+<meta charset="utf-8">
+<title>zz</title>
+<body style="background:#0b0a1a;color:#eee;font:16px system-ui">
+<div id="log" style="padding:10px"></div>
+<script type="module">
+const log = (m,c='#9f9'){ const d=document.createElement('div'); d.style.color=c; d.textContent=m; logBox.appendChild(d); }
+const logBox = document.getElementById('log');
+
+log('ZZ DEBUG LOADED');
+try {
+  // Try to load your real entry wrapper
+  const mod = await import('./js/main.js?probe=1');
+  log('Imported js/main.js OK');
+} catch (e) {
+  log('ERROR importing js/main.js → ' + (e?.message||e), '#f55');
+}
+
+window.addEventListener('error', e => log('window.onerror: ' + e.message, '#f55'));
+window.addEventListener('unhandledrejection', e => log('unhandledrejection: ' + (e.reason?.message||e.reason), '#f55'));
+</script>
