@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Diag</title>
+<body style="font:14px system-ui;background:#0b0a1a;color:#eee">
+<h1>Diagnostics</h1>
+<ol id="out"></ol>
+<script>
+const must = [
+  './index.html','./sw.js','./manifest.webmanifest','./css/styles.css',
+  './assets/sprites.png',
+  './js/main.js',
+  './js/engine/loader.js','./js/engine/storage.js','./js/engine/input.js','./js/engine/audio.js',
+  './js/game/game.js','./js/game/grid.js','./js/game/player.js','./js/game/enemy.js','./js/game/rock.js','./js/game/treasure.js','./js/game/ai.js',
+  './js/game/levels_classic.js','./js/game/levels_caves.js','./js/game/levels_ice.js'
+];
+const out = document.getElementById('out');
+(async () => {
+  for (const url of must) {
+    const li = document.createElement('li'); li.textContent = '… ' + url; out.appendChild(li);
+    try {
+      const r = await fetch(url, {cache:'no-store'});
+      li.textContent = (r.ok ? '✅ ' : '❌ ') + url + ' — ' + r.status;
+    } catch (e) {
+      li.textContent = '❌ ' + url + ' — ' + e.message;
+    }
+  }
+})();
+</script>
