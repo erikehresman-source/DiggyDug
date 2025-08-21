@@ -1,23 +1,11 @@
-// Placeholder for real game logic
-export function startGame() {
-  const hud = document.createElement('div');
-  hud.style.position = 'absolute';
-  hud.style.bottom = '10px';
-  hud.style.left = '10px';
-  hud.style.padding = '6px 10px';
-  hud.style.background = 'rgba(0,0,0,0.7)';
-  hud.style.color = '#0ff';
-  hud.style.font = '14px monospace';
-  hud.style.zIndex = 9999;
-  hud.innerText = 'JS OK';
-  document.body.appendChild(hud);
-
-  const canvas = document.getElementById('game');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = 'white';
-    ctx.fillText('Game loop would start here...', 20, 40);
-  }
+// js/main_real.js — provides BOTH bootGame() and startGame() for compatibility
+export async function bootGame(){ startGame(); }
+export function startGame(){
+  // Minimal proof-of-life: draw text on the canvas so we know code runs.
+  const cv = document.getElementById('game');
+  if(!cv){ throw new Error('Canvas #game not found'); }
+  const ctx = cv.getContext('2d');
+  ctx.fillStyle = 'black'; ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.fillStyle = 'white'; ctx.font = '16px monospace';
+  ctx.fillText('Debug: main_real.js is running', 20, 40);
 }
