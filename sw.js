@@ -1,5 +1,5 @@
 /* Cavern Quest SW */
-const CACHE_NAME = 'cq-v13'; // bump when you deploy
+const CACHE_NAME = 'cq-v14'; // bump when you deploy
 const CORE = [
   './','./index.html','./css/styles.css','./manifest.webmanifest','./sw.js',
   './assets/sprites.png',
