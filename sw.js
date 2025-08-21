@@ -1,5 +1,5 @@
 /* Cavern Quest SW */
-const CACHE_NAME='cq-v3';
+const CACHE_NAME='cq-v4';
 const CORE=[
   './','./index.html','./css/styles.css','./manifest.webmanifest','./sw.js',
   './assets/sprites.png',
