@@ -1,3 +1,4 @@
+export async function bootGame() {
 import {Loader} from './engine/loader.js';
 import {Store} from './engine/storage.js';
 import {Input} from './engine/input.js';
@@ -92,3 +93,5 @@ async function loadWorld(url){ game.attachFactory(url,'makeLevel'); await game.l
 function loop(t){ const dt=Math.min(0.05,(loop.last?(t-loop.last)/1000:0)); loop.last=t; game.tick(dt,input); requestAnimationFrame(loop); }
 window.addEventListener('resize', ()=>game.fit());
 boot();
+await boot();
+}
